@@ -29,6 +29,7 @@ class WishesController < ApplicationController
   # POST /wishes.json
   def create
     @wish = Wish.new(wish_params)
+    @wish.user = current_user
 
     respond_to do |format|
       if @wish.save
